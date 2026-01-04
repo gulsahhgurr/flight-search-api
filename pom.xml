@@ -13,6 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>flight-search-api</name>
     <description>flight-search-api</description>
+    <packaging>pom</packaging>
     <url/>
     <licenses>
         <license/>
@@ -29,6 +30,13 @@
     <properties>
         <java.version>21</java.version>
     </properties>
+    <modules>
+        <module>flight-common</module>
+        <module>flight-provider-a</module>
+        <module>flight-provider-b</module>
+        <module>flight-service</module>
+
+    </modules>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
