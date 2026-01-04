@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://example.com/flightprovidera"
+           targetNamespace="http://example.com/flightprovidera"
+           elementFormDefault="qualified">
+
+    <!-- Availability Search Request -->
+    <xs:element name="availabilitySearchRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="origin" type="xs:string"/>
+                <xs:element name="destination" type="xs:string"/>
+                <xs:element name="departureDate" type="xs:date"/>
+                <xs:element name="passengers" type="xs:int"/>
+                <xs:element name="returnDate" type="xs:date" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Availability Search Response -->
+    <xs:element name="availabilitySearchResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="hasError" type="xs:boolean"/>
+                <xs:element name="flightOptions" type="tns:flight" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="errorMessage" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Flight Type -->
+    <xs:complexType name="flight">
+        <xs:sequence>
+            <!-- Base Flight Fields -->
+            <xs:element name="flightNumber" type="xs:string"/>
+            <xs:element name="airline" type="xs:string"/>
+            <xs:element name="departureAirport" type="xs:string"/>
+            <xs:element name="arrivalAirport" type="xs:string"/>
+            <xs:element name="departureTime" type="xs:dateTime"/>
+            <xs:element name="arrivalTime" type="xs:dateTime"/>
+            <xs:element name="price" type="xs:decimal"/>
+            <xs:element name="currency" type="xs:string"/>
+            <xs:element name="availableSeats" type="xs:int"/>
+            <xs:element name="provider" type="xs:string"/>
+
+            <!-- Provider A Specific Fields -->
+            <xs:element name="cabinClass" type="xs:string" minOccurs="0"/>
+            <xs:element name="loyaltyPoints" type="xs:int" minOccurs="0"/>
+            <xs:element name="refundable" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
