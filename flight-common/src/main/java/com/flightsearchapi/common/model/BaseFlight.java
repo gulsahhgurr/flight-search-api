@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 public class BaseFlight {
 
     private LocalDateTime departuredatetime;
+    private LocalDateTime arrivaldatetime;
+    private BigDecimal price;
 
     public LocalDateTime getArrivaldatetime() {
         return arrivaldatetime;
@@ -30,14 +32,5 @@ public class BaseFlight {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
-
-    private LocalDateTime arrivaldatetime;
-    private BigDecimal price;
-
-
-/*bb
-private String flightNumber;
-    private String departure;
-    private String arrival;*/
 
 }
