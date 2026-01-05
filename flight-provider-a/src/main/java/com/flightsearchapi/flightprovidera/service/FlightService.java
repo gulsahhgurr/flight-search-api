@@ -1,5 +1,6 @@
 package com.flightsearchapi.flightprovidera.service;
 
+import com.flightsearchapi.flightcommon.converter.DateConverter;
 import com.flightsearchapi.flightprovidera.generated.AvailabilitySearchRequest;
 import com.flightsearchapi.flightprovidera.generated.AvailabilitySearchResponse;
 import com.flightsearchapi.flightprovidera.generated.Flight;
@@ -9,6 +10,7 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Endpoint
 public class FlightService {
@@ -18,22 +20,15 @@ public class FlightService {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "availabilitySearchRequest")
     @ResponsePayload
     public AvailabilitySearchResponse searchFlights(@RequestPayload AvailabilitySearchRequest request) {
-        
         AvailabilitySearchResponse response = new AvailabilitySearchResponse();
-        response.setHasError(false);
 
         Flight flight = new Flight();
-        flight.setFlightNumber("TK-101");
-        flight.setAirline("Turkish Airlines");
-        flight.setDepartureAirport(request.getOrigin());
-        flight.setArrivalAirport(request.getDestination());
+        flight.setFlightNo("TK-101");
+        flight.setOrigin(request.getOrigin());
+        flight.setDestination(request.getDestination());
+        flight.setDeparturedatetime(DateConverter.toXMLGregorianCalendar(LocalDateTime.now().plusDays(1)));
+        flight.setArrivaldatetime(DateConverter.toXMLGregorianCalendar(LocalDateTime.now().plusDays(1).plusHours(3)));
         flight.setPrice(new BigDecimal("299.99"));
-        flight.setCurrency("USD");
-        flight.setAvailableSeats(50);
-        flight.setProvider("Provider-A");
-        flight.setCabinClass("Economy");
-        flight.setRefundable(true);
-        flight.setLoyaltyPoints(500);
 
         response.getFlightOptions().add(flight);
 
