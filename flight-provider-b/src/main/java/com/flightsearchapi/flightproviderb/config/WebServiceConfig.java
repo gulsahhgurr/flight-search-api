@@ -23,18 +23,18 @@ public class WebServiceConfig {
         return new ServletRegistrationBean<>(servlet, "/ws/*");
     }
 
-    @Bean(name = "flights")
+    @Bean(name = "flightproviderb")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema flightsSchema) {
         DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
-        definition.setPortTypeName("FlightPort");
+        definition.setPortTypeName("FlightPortB");
         definition.setLocationUri("/ws");
-        definition.setTargetNamespace("http://example.com/flightprovidera");
+        definition.setTargetNamespace("http://example.com/flightproviderb");
         definition.setSchema(flightsSchema);
         return definition;
     }
 
     @Bean
     public XsdSchema flightsSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("flights.xsd"));
+        return new SimpleXsdSchema(new ClassPathResource("bflights.xsd"));
     }
 }

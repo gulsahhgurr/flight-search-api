@@ -10,7 +10,7 @@ public class SearchResult extends BaseSearchResult<Flight> {
         super();
     }
 
-    public SearchResult(boolean hasError, List<Flight> flightOptions, String errorMessage) {
-        super(hasError, flightOptions, errorMessage);
+    public SearchResult(boolean hasError, List<Flight> flightAOptions, String errorMessage) {
+        super(hasError, flightAOptions, errorMessage);
     }
 }
