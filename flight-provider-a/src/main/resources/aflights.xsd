@@ -4,25 +4,23 @@
            targetNamespace="http://example.com/flightprovidera"
            elementFormDefault="qualified">
 
-    <!-- Availability Search Request -->
-    <xs:element name="availabilitySearchRequest">
+    <!--Search Request -->
+    <xs:element name="SearchRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="origin" type="xs:string"/>
                 <xs:element name="destination" type="xs:string"/>
-                <xs:element name="departureDate" type="xs:date"/>
-                <xs:element name="passengers" type="xs:int"/>
-                <xs:element name="returnDate" type="xs:date" minOccurs="0"/>
+                <xs:element name="departureDate" type="xs:dateTime"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <!-- Availability Search Response -->
-    <xs:element name="availabilitySearchResponse">
+    <!-- Search Response -->
+    <xs:element name="SearchResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="hasError" type="xs:boolean"/>
-                <xs:element name="flightOptions" type="tns:flight" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="flightAOptions" type="tns:flight" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element name="errorMessage" type="xs:string" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>

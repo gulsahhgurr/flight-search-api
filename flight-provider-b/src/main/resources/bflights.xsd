@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:tns="http://example.com/flightprovidera"
-           targetNamespace="http://example.com/flightprovidera"
+           xmlns:tns="http://example.com/flightproviderb"
+           targetNamespace="http://example.com/flightproviderb"
            elementFormDefault="qualified">
 
-    <!-- Availability Search Request -->
-    <xs:element name="availabilitySearchRequest">
+    <!--  Search Request -->
+    <xs:element name="SearchRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="departure" type="xs:string"/>
                 <xs:element name="arrival" type="xs:string"/>
-                <xs:element name="departureDate" type="xs:date"/>
+                <xs:element name="departureDate" type="xs:dateTime"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <!-- Availability Search Response -->
-    <xs:element name="availabilitySearchResponse">
+    <!--  Search Response -->
+    <xs:element name="SearchResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="hasError" type="xs:boolean"/>
-                <xs:element name="flightOptions" type="tns:flight" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="flightBOptions" type="tns:flight" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element name="errorMessage" type="xs:string" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
@@ -37,5 +37,4 @@
             <xs:element name="price" type="xs:decimal"/>
         </xs:sequence>
     </xs:complexType>
-
 </xs:schema>
