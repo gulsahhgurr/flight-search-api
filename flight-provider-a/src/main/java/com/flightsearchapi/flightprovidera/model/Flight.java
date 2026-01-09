@@ -2,6 +2,9 @@ package com.flightsearchapi.flightprovidera.model;
 
 import com.flightsearchapi.common.model.BaseFlight;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 public class Flight extends BaseFlight {
     private String flightNo;
     private String origin;
@@ -31,5 +34,12 @@ public class Flight extends BaseFlight {
         this.destination = destination;
     }
 
+    public Flight(String flightNo, String origin, String destination, LocalDateTime departureDateTime,
+                  LocalDateTime arrivalDateTime, BigDecimal price) {
+        super();
+        this.flightNo = flightNo;
+        this.origin = origin;
+        this.destination = destination;
 
+    }
 }

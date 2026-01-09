@@ -2,6 +2,9 @@ package com.flightsearchapi.flightproviderb.model;
 
 import com.flightsearchapi.common.model.BaseFlight;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 public class Flight extends BaseFlight {
 
     private String flightNumber;
@@ -30,5 +33,17 @@ public class Flight extends BaseFlight {
 
     public void setDeparture(String departure) {
         this.departure = departure;
+    }
+    public Flight(String flightNumber,
+                  String departure,
+                  String arrival,
+                  LocalDateTime departureDateTime,
+                  LocalDateTime arrivalDateTime,
+                  BigDecimal price) {
+
+        super();
+        this.flightNumber = flightNumber;
+        this.departure = departure;
+        this.arrival = arrival;
     }
 }
