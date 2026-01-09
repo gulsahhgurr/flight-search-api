@@ -103,7 +103,7 @@
                 </executions>
                 <configuration>
                     <sources>
-                        <source>${project.basedir}/src/main/resources/flights.xsd</source>
+                        <source>${project.basedir}/src/main/resources/bflights.xsd</source>
                     </sources>
                     <packageName>com.flightsearchapi.flightproviderb.generated</packageName>
                     <clearOutputDir>false</clearOutputDir>
